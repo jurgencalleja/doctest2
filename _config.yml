@@ -1,8 +1,8 @@
 # ----
 # Site
 
-title: Aviator
-description: Jekyll template for API documentation.
+title: Turnkey Documentation
+description: Turnkey API documentation and Use Cases.
 url: https://example.com
 google_analytics_key:
 permalink: pretty
@@ -18,8 +18,11 @@ collections:
     title: Documentation
     position_number: 1
   api:
-    title: APIs
+    title: API Endpoint
     position_number: 2
+  documentation2:
+    title: Use Cases
+    position_number: 3
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag

@@ -1,13 +1,13 @@
 ---
-title: /books/:id
-position_number: 1.3
+title: /token/
+position_number: 1
 type: get
-description: Get Book
+description: Get session token
 parameters:
   - name:
     content:
 content_markdown: |-
-  Returns a specific book from your collection
+  Before initiating any payment action you'd need to get a session token.
 left_code_blocks:
   - code_block: |-
       $.get("http://api.myapp.com/books/3", {

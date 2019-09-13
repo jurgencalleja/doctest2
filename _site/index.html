@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>API Docs | Turnkey Documentation</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="API Docs" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Turnkey API documentation and Use Cases." />
+<meta property="og:description" content="Turnkey API documentation and Use Cases." />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Turnkey Documentation" />
+<script type="application/ld+json">
+{"@type":"WebSite","headline":"API Docs","url":"http://localhost:4000/","name":"Turnkey Documentation","description":"Turnkey API documentation and Use Cases.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="icon" type="image/png" href="/favicon.png">
+
+		
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="/js/main.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>
+				<button type="button" class="open-nav" id="open-nav"></button>
+				<a href="/"><img src="/images/logo.svg" height="40" alt="Turnkey Documentation logo"></a>
+			</h1>
+
+			<form action="/search/" method="get">
+				<input type="text" name="q" id="search-input" placeholder="Search">
+				<input type="submit" value="Search" style="display: none;">
+			</form>
+
+			<div id="sidebar" class="sidebar">
+	
+	
+		
+	
+		
+			<section>
+				<h6>Documentation</h6>
+				<ul>
+					
+					
+						<li>
+							<a href="#documentationoverview">
+								Api Operations Overview
+								
+							</a>
+						</li>
+					
+				</ul>
+			</section>
+		
+	
+		
+			<section>
+				<h6>API Endpoint</h6>
+				<ul>
+					
+					
+						<li>
+							<a href="#apitoken">
+								/token/
+								<span class="endpoint get"></span>
+							</a>
+						</li>
+					
+						<li>
+							<a href="#apipayment">
+								/payment
+								<span class="endpoint post"></span>
+							</a>
+						</li>
+					
+				</ul>
+			</section>
+		
+	
+		
+			<section>
+				<h6>Use Cases</h6>
+				<ul>
+					
+					
+						<li>
+							<a href="#documentation2IncomingTokenMigration">
+								Incoming Token Migration
+								
+							</a>
+						</li>
+					
+				</ul>
+			</section>
+		
+	
+</div>
+
+
+			<p class="copyright">
+				<a href="https://intelligentpayments.co.uk">
+					Copyright Intelligent Payments 2019
+				</a>
+			</p>
+		</header>
+		<div class="main">
+			
+
+	
+	
+
+	
+	
+		<section class="doc-content">
+			<section class="left-docs">
+				<h3>
+					<a id="documentationoverview">
+						Api Operations Overview
+						
+					</a>
+					<a class="editor-link" href="cloudcannon:collections/_documentation/overview.md">Edit</a>
+				</h3>
+				
+
+				
+
+				<p>This API Operations Overview is intended enable planning and integration with the IPG Gateway APIs  by:</p>
+<ul>
+  <li>Merchant business and technology staff</li>
+  <li>Shopping Cart Plugin providers</li>
+</ul>
+
+<p>The document defines the external interfaces to the IPG Gateway necessary to:</p>
+<ul>
+  <li>Request payment card tokens</li>
+  <li>Submit authorisation transactions</li>
+  <li>Submit purchases/sales transactions</li>
+  <li>Capture (full or partial) funds from customers’ accounts as a result of successful authorisation transactions</li>
+  <li>Void authorised payment requests</li>
+  <li>Refund (full or partial) purchases (captured payments)</li>
+  <li>Request transactions statuses</li>
+  <li>Integrate PCI Compliant Payment Forms</li>
+  <li>Receive Transaction Call results</li>
+</ul>
+
+<p>The reader should have the knowledge and understanding of the payments industry processes, and the role of the payment processer (the IPG Gateway) in those payment processes.</p>
+
+
+				
+			</section>
+			
+		</section>
+	
+
+	
+	
+		<section class="doc-content">
+			<section class="left-docs">
+				<h3>
+					<a id="apitoken">
+						/token/
+						
+							<span class="endpoint get"></span>
+						
+					</a>
+					<a class="editor-link" href="cloudcannon:collections/_api/token.md">Edit</a>
+				</h3>
+				
+					<p class="description">Get session token</p>
+				
+
+				
+
+				<p>Before initiating any payment action you’d need to get a session token.</p>
+
+
+				
+						
+								
+
+
+<div title="jQuery" class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"http://api.myapp.com/books/3"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">token</span><span class="p">:</span> <span class="s2">"YOUR_APP_KEY"</span><span class="p">,</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+								
+						
+			</section>
+			
+					<section class="right-code">
+						
+								
+
+
+<div title="Response" class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Book Thief"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dateAdded"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5/1/2015"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+						
+								
+
+
+<div title="Error" class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Book doesn't exist"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+						
+				</section>
+			
+		</section>
+	
+		<section class="doc-content">
+			<section class="left-docs">
+				<h3>
+					<a id="apipayment">
+						/payment
+						
+							<span class="endpoint post"></span>
+						
+					</a>
+					<a class="editor-link" href="cloudcannon:collections/_api/payment.md">Edit</a>
+				</h3>
+				
+
+				
+						<h6>Parameters</h6>
+						<dl>
+								
+										<dt>Purchase</dt>
+										<dd>short description</dd>
+								
+										<dt>Authorize</dt>
+										<dd>short description</dd>
+								
+										<dt>Verify</dt>
+										<dd>short description</dd>
+								
+										<dt>Tokenize</dt>
+										<dd>short description</dd>
+								
+						</dl>
+				
+
+				<p class="warning">You can’t make these calls without a session token</p>
+<p class="info">Please make sure that you’re passing these calls from a whitelisted IP</p>
+
+
+				
+			</section>
+			
+		</section>
+	
+
+	
+	
+		<section class="doc-content">
+			<section class="left-docs">
+				<h3>
+					<a id="documentation2IncomingTokenMigration">
+						Incoming Token Migration
+						
+					</a>
+					<a class="editor-link" href="cloudcannon:collections/_documentation2/IncomingTokenMigration.md">Edit</a>
+				</h3>
+				
+
+				
+
+				<p>This API Operations Overview is intended enable planning and integration with the IPG Gateway APIs  by:</p>
+<ul>
+  <li>Merchant business and technology staff</li>
+  <li>Shopping Cart Plugin providers</li>
+</ul>
+
+<p>The document defines the external interfaces to the IPG Gateway necessary to:</p>
+<ul>
+  <li>Request payment card tokens</li>
+  <li>Submit authorisation transactions</li>
+  <li>Submit purchases/sales transactions</li>
+  <li>Capture (full or partial) funds from customers’ accounts as a result of successful authorisation transactions</li>
+  <li>Void authorised payment requests</li>
+  <li>Refund (full or partial) purchases (captured payments)</li>
+  <li>Request transactions statuses</li>
+  <li>Integrate PCI Compliant Payment Forms</li>
+  <li>Receive Transaction Call results</li>
+</ul>
+
+<p>The reader should have the knowledge and understanding of the payments industry processes, and the role of the payment processer (the IPG Gateway) in those payment processes.</p>
+
+<p class="success">You’ll succeed if you do this.</p>
+
+<p class="info">Here’s some useful information.</p>
+
+<p class="warning">Something may not happen if you try and do this.</p>
+
+<p class="error">Something bad will happen if you do this.</p>
+
+
+				
+			</section>
+			
+		</section>
+	
+
+
+		</div>
+		<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+		</script>
+	</body>
+</html>
